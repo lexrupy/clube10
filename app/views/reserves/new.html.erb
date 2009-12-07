@@ -1,0 +1,26 @@
+<% title 'Nova Reserva' %>
+
+<% form_for @reserve do |f| -%>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :court_id, "Quadra" %><br />
+    <%= f.select :court_id, options_from_collection_for_select(Court.all, :id, :name, params[:court].to_i) %>
+	Valor: <span id="court-value"><%= court_value(params[:court]) %></span>	
+  </p>
+  <p>
+    <%= f.label :reserved_at, "Reservar para" %><br />
+    <%= f.date_select :reserved_at %>
+    <%= f.select :reserve_time, Reserve.times_for_select %>
+  </p>
+
+  <p><%= f.submit "Reservar" %></p>
+
+<% end -%>
+
+<%= link_to_remote "teste", :url => {:action=>"court_value", :method => :get} %>
+
+<% content_for :jsplace do -%>
+
+  <%#= observe_field :reserve_court_id, :url => {:action=>"court_value", :method => :get}, :with => "court_id" %>
+
+<% end -%>

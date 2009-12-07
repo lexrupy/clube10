@@ -1,0 +1,17 @@
+one:
+  court: 1
+  reserved_at: 2009-11-30
+  starting_at: 2009-11-30 22:29:27
+  ending_at: 2009-11-30 22:29:27
+  confirmed: false
+  user: 
+  points: 1
+
+two:
+  court: 1
+  reserved_at: 2009-11-30
+  starting_at: 2009-11-30 22:29:27
+  ending_at: 2009-11-30 22:29:27
+  confirmed: false
+  user: 
+  points: 1

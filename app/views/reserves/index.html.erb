@@ -1,0 +1,20 @@
+<% title "Reservas" %>
+
+<table>
+  <tr>
+    <th>Quadra</th>
+    <th>Dia</th>
+    <th>Horário</th>
+    <th>Confirmado</th>
+	<th>Opções</th>
+  </tr>
+  <% for reserve in @reserves %>
+    <tr>
+      <td><%=h reserve.court_name %></td>
+      <td><%=h reserve.reserved_at %></td>
+      <td><%=h reserve.reserve_time %></td>
+      <td><%=h reserve.confirmed %></td>
+	  <td><%= link_to "Confirmar reserva", new_confirmation_path(:reserve_id => reserve.id) %></td>
+  <% end %>
+</table>
+
