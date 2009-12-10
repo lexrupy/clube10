@@ -1,5 +1,5 @@
 class ConfirmationsController < ApplicationController
-  # ssl_required :new, :create
+  ssl_required :new, :create
 
   def new
     @confirmation = Confirmation.new(:reserve_id => params[:reserve_id])

@@ -1,0 +1,2 @@
+page[:courtvalue].innerHTML = number_to_currency(@court.value)
+page[:courtvalue].visual_effect :highlight

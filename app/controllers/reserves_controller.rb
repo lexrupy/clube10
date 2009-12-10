@@ -20,8 +20,8 @@ class ReservesController < ApplicationController
   end
   
   def court_value
-    c = Court.find(params[:court_id])
-    c.value
+    @court = Court.find(params[:court_id])
+    @court
   end
 
 end

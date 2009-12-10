@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sessions
   map.resources :users
   map.resource :home
-  map.resources :reserves, :member => { :court_value => :get }
+  map.resources :reserves, :collection => { :court_value => :get }
   map.resources :confirmations
 
 end
