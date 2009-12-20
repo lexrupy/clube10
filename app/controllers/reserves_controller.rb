@@ -1,7 +1,7 @@
 class ReservesController < ApplicationController
 
   def index
-    @reserves = current_user.reserves
+    @reserves = current_user.reserves.valid_reserves
   end
 
   def new

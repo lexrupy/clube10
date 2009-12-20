@@ -1,8 +1,26 @@
-<h1>Confirmar reserva</h1>
-
+<% title "Confirmação de reserva" %>
 
 <p>Escolha a forma de pagamento</p>
 
+<h2><%= number_to_currency(@reserve.court_value) %></h2>
+
 <% form_for @confirmation do |f| -%>
-  
+	<%= f.error_messages %>
+	<%= hidden_field_tag :reserve_id,  @reserve.id %>
+	<%= radio_button_tag :payment_type, :card, params[:payment_type] || true %>Cartão<br />
+	<%= radio_button_tag :payment_type, :credits, false, :disabled => !current_user.have_credit?(@reserve) %>Créditos <small><%= user_credits(@reserve) %></small>
+	<br />
+	<div id="card-information">
+		<p>
+		  Informe o número do Seu cartão de crédito:<br />
+		  <%= text_field_tag :card_number, nil, :size => 17, :maxlength => 16, :class => 'credit-card-box'  %>
+			<%= text_field_tag :card_digits, nil, :size => 4, :maxlength => 3, :class => 'credit-card-box' %>
+		</p>
+	</div>
+	<%= submit_tag 'Confirmar reserva' %>
+	
+<% end -%>
+
+<% content_for :jsplace do -%>
+	<%= observe_form :new_confirmation, :function => "if ( $('payment_type_card').checked ) { $('card-information').show(); } else { $('card-information').hide(); }" %>
 <% end -%>

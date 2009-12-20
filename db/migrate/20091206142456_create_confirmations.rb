@@ -4,6 +4,8 @@ class CreateConfirmations < ActiveRecord::Migration
       t.references :user
       t.references :reserve
       t.boolean :credit_card
+      t.integer :value
+      t.integer :credits
       t.timestamps
     end
   end

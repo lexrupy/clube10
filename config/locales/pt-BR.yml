@@ -78,7 +78,7 @@ pt-BR:
       delimiter: '.'
     currency:
       format:
-        unit: 'R$'
+        unit: '#~'
         precision: 2
         format: '%u %n'
         separator: ','
@@ -138,6 +138,12 @@ pt-BR:
       user:
         one: Usuário
         other: Usuários
+      reserve:
+        one: Reserva
+        other: Reservas
+      confirmation:
+        one: Confirmação
+        other: Confirmações
     attributes:
       user:
         id: ID
@@ -145,4 +151,18 @@ pt-BR:
         username: Usuário
         password: Senha
         password_confirmation: Confirmação da senha
+      reserve:
+        id: ID
+        court: Quadra
+        reserved_at: Reserva para
+        reserve_time: Hora da reserva
+        confirmed: Confirmado
+        user_id: Usuário
+        points: Pontos
+      confirmation:
+        id: ID
+        card_number: Número do cartão
+        card_digits: Dígitos do cartão
+        reserve_id: Reserva
+        user_id: Usuário
 

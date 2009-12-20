@@ -14,11 +14,19 @@ class User < ActiveRecord::Base
   validates_length_of :password, :minimum => 4, :allow_blank => true
   
   has_many :reserves
+  has_many :confirmations
   
-  def increase_credit(noc)
-    self.update_attribute(:balance, balance.to_i+noc)
+  def have_credit?(rv)
+    balance >= rv.court_value
   end
   
+  def increase_credit(noc)
+    self.update_attribute(:balance, balance.to_i+noc.to_i)
+  end
+  
+  def decrease_credit(noc)
+    increase_credit(noc.to_i*-1)
+  end
 
   # login can be either username or email address
   def self.authenticate(login, pass)

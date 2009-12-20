@@ -4,6 +4,18 @@ class Reserve < ActiveRecord::Base
   belongs_to :court
   delegate :username, :to => :user
   delegate :name, :to => :court, :prefix => true
+  delegate :value, :to => :court, :prefix => true
+  
+  has_one :confirmation
+  
+  named_scope :valid_reserves, :conditions => ['reserved_at > ?', 24.hours.from_now]
+  
+  def confirm
+    return false if reserved_at > 24.hours.from_now
+    self.confirmed = true
+    self.save
+  end
+  
   #validates_uniqueness_of :court_id, :scope =>  [:reserved_at, :reserve_time], :on => :create, :message => "Esta quadra já encontra-se reservada para esta data e horário."
   def self.times_for_select
     options = (7.upto(21).to_a - [12]).inject([]) do |values, time|

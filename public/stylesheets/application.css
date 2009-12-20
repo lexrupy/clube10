@@ -85,3 +85,28 @@ a {
   font-size:12px;
 }
 
+.credit-card-box {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 2px, 4px;
+}
+
+table.index {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0 0 0;
+}
+table.index td {
+  vertical-align: top;
+  color: #666;
+  font-size: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #efefef;
+}
+table.index td.actions {
+  padding-left: 1em;
+  white-space: nowrap;
+}
+table th {
+  text-align: left;
+}
