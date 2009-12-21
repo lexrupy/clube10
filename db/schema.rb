@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(:version => 20091206191150) do
     t.integer  "user_id"
     t.integer  "reserve_id"
     t.boolean  "credit_card"
+    t.integer  "value"
+    t.integer  "credits"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
