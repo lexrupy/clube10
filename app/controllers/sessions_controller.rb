@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   ssl_required :new, :create
+  skip_before_filter :login_required
 
   def new
   end
@@ -9,6 +10,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:login], params[:password])
     if user
       session[:user_id] = user.id
+      session[:expire_time] = Time.now
       flash[:notice] = "Login efetuado com sucesso."
       redirect_to_target_or_default(root_url)
     else

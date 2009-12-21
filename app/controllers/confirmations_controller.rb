@@ -4,6 +4,7 @@ class ConfirmationsController < ApplicationController
   def new
     @reserve = current_user.reserves.find(params[:reserve_id])
     @confirmation = Confirmation.new(:reserve_id => params[:reserve_id])
+    @have_credit = current_user.have_credit?(@reserve)
   end
 
   def create

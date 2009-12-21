@@ -7,10 +7,10 @@
 <% form_for @confirmation do |f| -%>
 	<%= f.error_messages %>
 	<%= hidden_field_tag :reserve_id,  @reserve.id %>
-	<%= radio_button_tag :payment_type, :card, params[:payment_type] || true %>Cartão<br />
-	<%= radio_button_tag :payment_type, :credits, false, :disabled => !current_user.have_credit?(@reserve) %>Créditos <small><%= user_credits(@reserve) %></small>
-	<br />
-	<div id="card-information">
+	<%= radio_button_tag :payment_type, :card, !@have_credit %>Cartão<br />
+	<%= radio_button_tag :payment_type, :credits, @have_credit, :disabled => !@have_credit %>Créditos <small><%= user_credits(@reserve) %></small>
+ 	<br> 	
+  <div id="card-information" style="<%= @have_credit ? 'display:none;' : '' %>">
 		<p>
 		  Informe o número do Seu cartão de crédito:<br />
 		  <%= text_field_tag :card_number, nil, :size => 17, :maxlength => 16, :class => 'credit-card-box'  %>
