@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   
   ssl_required :new, :create
   
+  skip_before_filter :login_required, :only => [:new, :create]
+  
   def new
     @user = User.new
   end
