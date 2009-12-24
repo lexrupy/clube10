@@ -46,6 +46,10 @@ a {
   display: inline;
 }
 
+.fieldWithErrors input, .fieldWithErrors textarea {
+	background-color: #FCC;
+}
+
 #errorExplanation {
   width: 400px;
   border: 2px solid #CF0000;
