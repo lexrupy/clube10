@@ -1,9 +1,9 @@
-<% title "Clube 10" %>
+<% title "Home" %>
 
 <% if logged_in? -%>
-  <ul class="lista-quadras">
+  <ul id="court-list">
     <% for court in Court.all -%>
-      <li><%= h court.name %>&nbsp;<%= link_to 'Efetuar reserva', new_reserve_path(:court => court.id) %></li>
+      <li><%= image_tag 'sport_soccer.png' %> <%= h court.name %>&nbsp;<%= link_to 'Efetuar reserva', new_reserve_path(:court => court.id), :class => 'action reserve' %></li>
     <% end -%>
   </ul>
 <% end -%>

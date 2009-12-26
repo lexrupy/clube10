@@ -13,7 +13,7 @@
     <%= f.select :reserve_time, Reserve.times_for_select %>
   </p>
 
-  <p><%= f.submit "Reservar" %></p>
+  <p><%= f.submit "Reservar" %> ou <%= link_to "Voltar", :back %></p>
 
 <% end -%>
 

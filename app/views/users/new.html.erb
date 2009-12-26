@@ -23,3 +23,8 @@
   <p><%= f.submit "Cadastrar-se" %></p>
 <% end %>
 
+<% content_for :jsplace do -%>
+	<%= javascript_tag "Form.focusFirstElement('new_user')" %>
+<% end -%>
+
+

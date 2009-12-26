@@ -1,6 +1,6 @@
 <% title "Reservas" %>
 
-<p><%= link_to "Nova reserva", new_reserve_path %></p>
+<p><%= link_to "Nova reserva", new_reserve_path, :class => 'action new' %></p>
 
 <table class="index">
   <tr>
@@ -15,11 +15,11 @@
       <td><%=h reserve.court_name %></td>
       <td><%=h reserve.reserved_at %></td>
       <td><%=h reserve.reserve_time %></td>
-      <td><%= reserve.confirmed ? 'Sim': 'Não' %></td>
+      <td style="text-align:center;"><%= reserve.confirmed ? "Sim" : "Não" %> <%= image_tag(reserve.confirmed ? 'thumb_up.png': 'thumb_down.png') %></td>
 			<% unless reserve.confirmed %>
-	  		<td class="actions"><%= link_to "Confirmar reserva", new_confirmation_path(:reserve_id => reserve.id) %></td>
+	  		<td class="actions"><%= link_to "Confirmar reserva", new_confirmation_path(:reserve_id => reserve.id), :class => 'action confirm' %></td>
 			<% else %>
-	  		<td class="actions"><%= link_to "Cancelar reserva", confirmation_path(reserve.confirmation), :method => :delete, :confirm => "Ao cancelar esta reserva você receberá #{reserve.confirmation.extra_credits} créditos para utilizar em reservas futuras\nTem certeza que deseja cancelar esta reserva?" %></td>
+	  		<td class="actions"><%= link_to "Cancelar reserva", confirmation_path(reserve.confirmation), :method => :delete, :class => 'action cancel', :confirm => "Ao cancelar esta reserva você receberá #{reserve.confirmation.extra_credits} créditos para utilizar em reservas futuras\nTem certeza que deseja cancelar esta reserva?" %></td>
 			<% end -%>
   <% end %>
 </table>

@@ -4,15 +4,19 @@ body {
   font-size: 14px;
 }
 
-a img {
-  border: none;
+a img { border: none; }
+
+a:link, a:visited {
+  color: #0054ff;
+  text-decoration: none;
+}
+a:hover {
+  background-color: #0054ff;
+  color: #fff;
 }
 
-a {
-  color: #0000FF;
-}
 
-.clear {
+.clear { 
   clear: both;
   height: 0;
   overflow: hidden;
@@ -114,3 +118,22 @@ table.index td.actions {
 table th {
   text-align: left;
 }
+
+div#flash_messages {
+	margin-top: 20px;
+}
+
+#court-list {
+	list-style: none;
+}
+
+#court-list li {
+	margin-top: 10px;
+}
+
+a.action {padding: 3px 3px 3px 20px}
+a.action:hover {background-color: #0054ff}
+a.confirm {background: URL('/images/tick.png') left no-repeat}
+a.new {background: URL('/images/add.png') left no-repeat}
+a.cancel {background: URL('/images/cross.png') left no-repeat}
+a.reserve {background: URL('/images/calendar_day.png') left no-repeat}

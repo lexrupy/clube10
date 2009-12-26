@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :password
   before_save :prepare_password
-
+  
   validates_presence_of :username
   validates_uniqueness_of :username, :email, :allow_blank => true
   validates_format_of :username, :with => /^[-\w\._@]+$/i, :allow_blank => true, :message => "deve conter apenas letras, números, ou .-_@"
@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
 
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
+  end
+  
+  def show_display_name
+    display_name.nil? ? email : display_name
   end
 
   private

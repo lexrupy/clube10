@@ -15,3 +15,7 @@
 	</p>	
 	<p><%= submit_tag "Enviar" %></p>
 <% end -%>
+
+<% content_for :jsplace do -%>
+	<%= javascript_tag "Form.focusFirstElement('new_contact')" %>
+<% end -%>

@@ -19,8 +19,11 @@ class UsersController < ApplicationController
     end
   end
   
-  def show
-  
+  def update
+    current_user.display_name = params[:user][:display_name]
+    current_user.photo = params[:user][:photo]
+    current_user.save!
+    redirect_to root_url
   end
   
 end
