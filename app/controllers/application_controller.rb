@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
       
       current_time = Time.now
       session[:expire_time] = current_time if session[:expire_time].nil?
-      if session[:expire_time] < 3.minutes.ago
+      if session[:expire_time] < 5.minutes.ago
         session[:user_id] = nil
         session[:expire_time] = nil
         flash[:notice] = "Sua sessão expirou. Efetue o login novamente para continuar."
