@@ -17,7 +17,7 @@
 			<%= text_field_tag :card_digits, nil, :size => 4, :maxlength => 3, :class => 'credit-card-box' %>
 		</p>
 	</div>
-	<%= submit_tag 'Confirmar reserva' %>
+	<%= submit_tag 'Confirmar reserva', :disabled_with => 'Aguarde...' %>
 	
 <% end -%>
 

@@ -13,7 +13,7 @@
 		<%= f.label :message, "Mensagem" %><br />
 		<%= f.text_area :message, :rows => 8, :cols => 50 %>
 	</p>	
-	<p><%= submit_tag "Enviar" %></p>
+	<p><%= submit_tag "Enviar", :disabled_with => 'Enviando...' %></p>
 <% end -%>
 
 <% content_for :jsplace do -%>

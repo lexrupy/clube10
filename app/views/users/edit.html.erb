@@ -22,7 +22,7 @@
     Nosso site usa <%= link_to_gravatar %> para obter o Avatar dos usuários com base em seus endereços de email.<br />
 		 <%= link_to_gravatar %> pode ser utilizado gratuitamente. <%= link_to_gravatar_sign_up %> caso você ainda não o utilize.</p>
 
-	<%= submit_tag "Confirmar" %> ou <%= link_to "Voltar", :back %>
+	<%= submit_tag "Confirmar", :disabled_with => 'Aguarde...' %> ou <%= link_to "Voltar", :back %>
 <% end -%>
 
 <% content_for :jsplace do -%>
