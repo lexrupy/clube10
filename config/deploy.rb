@@ -19,6 +19,11 @@ namespace :deploy do
   task :start, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
   end
+  
+  desc "Cria os links simbolicos para o database.yml e para a pasta assets"
+  task :symlink_shared do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
 
   task :stop, :roles => :app do
     # Do nothing.
@@ -28,3 +33,5 @@ namespace :deploy do
     run "touch #{current_release}/tmp/restart.txt"
   end
 end
+
+after :deploy, 'deploy:symlink_shared'

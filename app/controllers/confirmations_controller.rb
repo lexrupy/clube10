@@ -42,7 +42,7 @@ class ConfirmationsController < ApplicationController
   def destroy
     @confirmation = current_user.confirmations.find(params[:id])
     @confirmation.destroy
-    flash[:notice] = "Reserva cancelada com sucesso. você foi creditado em #{@confirmation.extra_credits} créditos."
+    flash[:notice] = "Reserva cancelada com sucesso. você recebeu #{@confirmation.extra_credits} créditos."
     redirect_to reserves_path
   end
 
