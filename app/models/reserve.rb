@@ -18,7 +18,7 @@ class Reserve < ActiveRecord::Base
   
   #validates_uniqueness_of :court_id, :scope =>  [:reserved_at, :reserve_time], :on => :create, :message => "Esta quadra já encontra-se reservada para esta data e horário."
   def self.times_for_select
-    options = (7.upto(21).to_a - [12]).inject([]) do |values, time|
+    options = ((7..21).to_a - [12]).inject([]) do |values, time|
       values << ["#{time.to_s.rjust(2,'0')}:00 - #{(time+1).to_s.rjust(2,'0')}:00"]
     end
   end
