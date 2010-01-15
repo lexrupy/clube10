@@ -21,7 +21,7 @@ class ConfirmationsController < ApplicationController
       if !@confirmation.credit_card? 
         unless current_user.have_credit?(@reserve)
           flash[:error] = "Créditos insuficientes para realizar a operação."
-          return render :action => 'new'
+          return render(:action => 'new')
         end
       end
 
