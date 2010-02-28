@@ -18,7 +18,7 @@ echo "    Options -MultiViews" >> $sitefile
 echo "  </Directory>" >> $sitefile
 echo "</VirtualHost>" >> $sitefile
 
-echo "<VirtualHost *:443>" > $sitefile
+echo "<VirtualHost *:443>" >> $sitefile
 echo "  ServerName clube10.local" >> $sitefile
 echo "  DocumentRoot /home/administrador/clube10/public" >> $sitefile
 echo "  <Directory /home/administrador/clube10/public>" >> $sitefile
