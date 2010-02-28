@@ -9,7 +9,9 @@ echo "LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-2.2.10/e
 echo "PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-2.2.10" > $conffile
 echo "PassengerRuby /usr/bin/ruby1.8" >> $conffile
 
-echo "<VirtualHost *:80>" > $sitefile
+echo "NameVirtualHost *:80" > $sitefile
+echo "NameVirtualHost *:443" > $sitefile
+echo "<VirtualHost *:80>" >> $sitefile
 echo "  ServerName clube10.local" >> $sitefile
 echo "  DocumentRoot /home/administrador/clube10/public" >> $sitefile
 echo "  <Directory /home/administrador/clube10/public>" >> $sitefile
@@ -17,7 +19,6 @@ echo "    AllowOverride all" >> $sitefile
 echo "    Options -MultiViews" >> $sitefile
 echo "  </Directory>" >> $sitefile
 echo "</VirtualHost>" >> $sitefile
-
 echo "<VirtualHost *:443>" >> $sitefile
 echo "  ServerName clube10.local" >> $sitefile
 echo "  DocumentRoot /home/administrador/clube10/public" >> $sitefile
