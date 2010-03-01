@@ -10,7 +10,7 @@ echo "PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-2.2.10" > $conffile
 echo "PassengerRuby /usr/bin/ruby1.8" >> $conffile
 
 echo "NameVirtualHost *:80" > $sitefile
-echo "NameVirtualHost *:443" > $sitefile
+echo "NameVirtualHost *:443" >> $sitefile
 echo "<VirtualHost *:80>" >> $sitefile
 echo "  ServerName clube10.local" >> $sitefile
 echo "  DocumentRoot /home/administrador/clube10/public" >> $sitefile
